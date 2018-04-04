@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["takiya@toran.sakura.ne.jp"]
 
   spec.summary       = %q{With simple configuration (YAML), you can obtain Google Analytics reporting data}
-  spec.description   = %q{This gem is powered by Legato gem. First of all, you create configuration YAML as Google Analytics API. Then execute the simple Ruby code, and you obtain Google Analytics Reporting Data. Very simple.}
+  spec.description   = %q{This gem is powered by Legato gem. First of all, you create configuration YAML file as Google Analytics API. Then execute the simple Ruby code, and you obtain Google Analytics Reporting Data. Very simple.}
   spec.homepage      = "https://github.com/corselia/simple-ga-reporting"
   spec.license       = "MIT"
 
