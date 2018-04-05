@@ -309,6 +309,7 @@ sort:
   - -users
 filters:
   - chrome_or_fx
+  - happy_page
 limit: 20
 ```
 
