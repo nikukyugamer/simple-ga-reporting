@@ -56,8 +56,6 @@ SimpleGaReports.filtered_results #=> Legato::Query
 
 ## API configuration file
 - You must create Google Analytics API configuration file
-    - `YAML`
-    - You can give it any filename
 - Default filepath is `config/key_and_email.yml`
     - You can change filepath by argument with `create_ga_user` method
 - Sample is below
@@ -98,7 +96,7 @@ limit: 20
 
 ![ga_query_parametes_summary.png](images/ga_query_parametes_summary.png)
 
-- In this documents, you can config only several sets as below
+- Though that documents show many Key-Value sets, you can config only several sets as below
     - start-date
     - end-date
     - metrics
@@ -110,13 +108,15 @@ limit: 20
 - Some Key names in configure file are different from ones in official document
     - `start_date` in configure file (not `start-date`)
     - `end_date` in configure file (not `end-date`)
-    - `limit` ins configure file (instead of `max-results`)
+    - `limit` in configure file (instead of `max-results`)
+    - `sampling_level` in configure file (not `samplingLevel`)
 - The type of `metrics`, `dimensions`, `sort` and `filters` is `Array`
     - The order of elements doesn't matter
 
 ## Key-Value detail
 
 #### profile_name
+- REQUIRED
 - It was called `view (view name)` before
     - but in Japanese page, still `ビュー名`
 
@@ -181,6 +181,7 @@ limit: 20
 - You use filters function using `filters.rb` file
     - the filename `filters.rb` is determined
         - only filepath is optional
+    - the module name `Filters` is determined
     - Default filepath is `config/filters.rb`
         - You can change it by argument with `configure` method
 - Examples
