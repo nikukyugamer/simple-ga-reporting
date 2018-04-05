@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec_junit_formatter" # 'cannot load such file -- rspec_junit_formatter'
 
   spec.add_development_dependency "legato"
   spec.add_development_dependency "oauth2"
