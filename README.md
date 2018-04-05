@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/corselia/simple-ga-reporting.svg?style=svg)](https://circleci.com/gh/corselia/simple-ga-reporting)
+
 # What's this?
 This gem helps you to obtain `Google Analytics` reporting data with ease.
 
@@ -113,7 +115,7 @@ limit: 20
     - The order of elements doesn't matter
 
 ## Key-Value detail
- 
+
 #### profile_name
 - It was called `view (view name)` before
     - but in Japanese page, still `ビュー名`
