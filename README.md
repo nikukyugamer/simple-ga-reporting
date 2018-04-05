@@ -19,24 +19,18 @@ $ gem install simple-ga-reporting
 
 ## 2. Create API configuration file
 - You must create `config/key_and_email.yml`
-    - filepath and filename can be changed
 - This YAML file must contain two Key-Value sets
-    - `private_key`
-        - its key
-    - `client_email`
-        - its email
+    - `private_key` and its value
+    - `client_email` and its value
 - How to get above two Key-Value sets is written later
 
 ## 3. Create Google Analytics reporting configuration file
 - You must create the YAML file which contains Google Analytics reporting configuration such as `start-date`, `end-date`, `metrics`, `demensions`, `filters` and etc.
 - filepath is `config/ga_reporting_config.yml`
-    - filepath and filename can be changed
-- This YAML file format is written later
-
+- This YAML file format is shown later
 
 ## 4. Create filters file (Optional)
 - If you wanna use filters function, please create `config/filters.rb`
-    - only filepath can be changed
 - the filters configuration on GUI is below
 
 ![filter configuration on GUI](images/config_filter_by_gui.png)
@@ -63,7 +57,7 @@ SimpleGaReports.filtered_results #=> Legato::Query
     - `YAML`
     - You can give it any filename
 - Default filepath is `config/key_and_email.yml`
-    - You can change it by argument with `create_ga_user` method
+    - You can change filepath by argument with `create_ga_user` method
 - Sample is below
 
 ```yaml
@@ -74,7 +68,7 @@ client_email: "your_account_name@foobar.iam.gserviceaccount.com"
 ## Google Analytics reporting configuration file
 - You must create the YAML file which contains Google Analytics reporting configuration
 - Default filepath is `config/ga_reporting_config.yml`
-    - You can change it by argument with `configure` method
+    - You can change filepath by argument with `configure` method
 - Sample is below
 
 ```yaml
@@ -184,7 +178,7 @@ limit: 20
 ## filters file
 - You use filters function using `filters.rb` file
     - the filename `filters.rb` is determined
-        - filepath is optional
+        - only filepath is optional
     - Default filepath is `config/filters.rb`
         - You can change it by argument with `configure` method
 - Examples
@@ -246,6 +240,7 @@ end
 
 #### 1. Access to [Google Cloud Platform](https://console.cloud.google.com/)
     - please prepare your Google account
+
 #### 2. Create service account for Google Analytics API and select `API and Service` from menu
 
 ![Google Cloud Platform API menu](images/gcp_api_menu.png)
