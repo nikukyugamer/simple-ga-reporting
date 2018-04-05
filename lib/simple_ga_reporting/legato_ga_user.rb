@@ -8,18 +8,17 @@ module LegatoGaUser
   AUDIENCE              = 'https://accounts.google.com/o/oauth2/token'.freeze
   AUTHORIZE_URL         = 'https://accounts.google.com/o/oauth2/auth'.freeze
   TOKEN_URL             = 'https://accounts.google.com/o/oauth2/token'.freeze
-  KEY_AND_EMAIL_FILE    = 'config/key_and_email.yml'.freeze # TODO: hard coding
 
   private
-  def create_ga_user
-    signing_key = OpenSSL::PKey::RSA.new(private_key)
+  def create_ga_user(key_and_email_file='config/key_and_email.yml')
+    signing_key = OpenSSL::PKey::RSA.new(private_key(key_and_email_file))
     auth_client = Signet::OAuth2::Client.new(
       token_credential_uri: TOKEN_CREDENTIAL_URI,
       audience: AUDIENCE,
       scope: SCOPE,
-      issuer: client_email,
+      issuer: client_email(key_and_email_file),
       signing_key: signing_key,
-      sub: client_email,
+      sub: client_email(key_and_email_file),
     )
     access_token = auth_client.fetch_access_token!
 
@@ -40,11 +39,11 @@ module LegatoGaUser
     ga_user
   end
 
-  def private_key
-    YAML.load_file(KEY_AND_EMAIL_FILE)['private_key']
+  def private_key(key_and_email_file)
+    YAML.load_file(key_and_email_file)['private_key']
   end
 
-  def client_email
-    YAML.load_file(KEY_AND_EMAIL_FILE)['client_email']
+  def client_email(key_and_email_file)
+    YAML.load_file(key_and_email_file)['client_email']
   end
 end
