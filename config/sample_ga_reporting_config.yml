@@ -1,0 +1,17 @@
+profile_name: my_profile_name
+start_date: 2018-04-01
+end_date: 2018-04-05
+metrics:
+  - users
+  - pageviews
+dimensions:
+  - pagePath
+  - pageTitle
+sort:
+  - -pageviews
+  - -users
+filters:
+  - my_awesome_filter
+  - his_awesome_filter
+  - her_awesome_filter
+limit: 20

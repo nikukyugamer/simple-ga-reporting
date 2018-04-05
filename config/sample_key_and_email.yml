@@ -1,0 +1,2 @@
+private_key: "-----BEGIN PRIVATE KEY-----\nMIIE..........Eqw==\n-----END PRIVATE KEY-----\n"
+client_email: "your_account_name@foobar.iam.gserviceaccount.com"
