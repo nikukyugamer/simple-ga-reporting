@@ -1,4 +1,4 @@
-require 'legato_ga_user'
+require 'simple_ga_reporting/legato_ga_user'
 
 class SimpleGaReports
   extend LegatoGaUser
@@ -10,7 +10,7 @@ class << SimpleGaReports
     $model_config = YAML.load_file(yaml_file)
     $filters_file = filters_file
 
-    require 'legato_ga_model'
+    require 'simple_ga_reporting/legato_ga_model'
     query_parameters($model_config, options)
   end
 
