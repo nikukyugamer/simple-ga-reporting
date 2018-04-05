@@ -10,7 +10,7 @@ Yeah, very simple :)
 ## Wrapper gem of Legato
 This gem is a wrapper of [Legato gem](https://github.com/tpitale/legato). `Legato` is very coooooooool and full-stack gem, so complicated as a beginner (me!).
 
-So I developed this wrapper gem, `simple-ga-reporting`.
+Therefore I developed this wrapper gem, `simple-ga-reporting`.
 
 # Get Started
 
