@@ -43,14 +43,13 @@ $ gem install simple-ga-reporting
     - Use only two class methods
         - `SimpleGaReports.configure`
         - `SimpleGaReports.filtered_results`
-    - Only four lines :-)
+    - Only three lines :-)
     - Note
         - If you don't use filters, use `SimpleGaReports.raw_results`
         - when no filter is in configure file, `SimpleGaReports.raw_results` is the same as `SimpleGaReports.filtered_results`
 
 ```ruby
 require 'simple_ga_reporting'
-require 'yaml'
 
 SimpleGaReports.configure
 SimpleGaReports.filtered_results #=> Legato::Query
@@ -302,7 +301,6 @@ end
 #### 1. `./my_sample_app.rb`
 ```ruby
 require 'simple_ga_reporting'
-require 'yaml'
 
 SimpleGaReports.configure('./bar/my_ga_reporting_config.yml','./foobar/filters.rb', start_date:
 '2daysAgo', limit: 100)

@@ -1,4 +1,5 @@
 require 'simple_ga_reporting/legato_ga_user'
+require 'yaml'
 
 class SimpleGaReports
   extend LegatoGaUser

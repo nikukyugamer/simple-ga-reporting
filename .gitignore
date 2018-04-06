@@ -54,3 +54,4 @@ build-iPhoneSimulator/
 
 Gemfile.lock
 Guardfile
+.idea/
