@@ -45,8 +45,8 @@ $ gem install simple-ga-reporting
         - `SimpleGaReports.filtered_results`
     - Only three lines :-)
     - Note
-        - If you don't use filters, you can also use `SimpleGaReports.raw_results`
-        - at that time, `SimpleGaReports.raw_results` is the same as `SimpleGaReports.filtered_results`
+        - If you don't use filters, use `SimpleGaReports.raw_results`
+        - when no filter is in configure file, `SimpleGaReports.raw_results` is the same as `SimpleGaReports.filtered_results`
 
 ```ruby
 require 'simple_ga_reporting'
@@ -215,8 +215,9 @@ end
 # Arguments of method
 
 ## `SimpleGaReports.filtered_results` method
-- If you don't user filters, `SimpleGaReports.raw_results` method is the same
 - take one argument
+- If you don't use filters, use `SimpleGaReports.raw_results` method
+    - when no filter is in configure file, `SimpleGaReports.raw_results` is the same as `SimpleGaReports.filtered_results`
 
 1. `key_and_email_file`
     - default is `config/key_and_email.yml`
