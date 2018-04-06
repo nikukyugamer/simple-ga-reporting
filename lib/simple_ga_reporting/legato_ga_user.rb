@@ -1,6 +1,7 @@
 require 'legato'
 require 'oauth2'
 require 'signet/oauth_2/client'
+require 'yaml'
 
 module LegatoGaUser
   SCOPE                 = 'https://www.googleapis.com/auth/analytics.readonly'.freeze
