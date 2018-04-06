@@ -44,6 +44,9 @@ $ gem install simple-ga-reporting
         - `SimpleGaReports.configure`
         - `SimpleGaReports.filtered_results`
     - Only three lines :-)
+    - Note
+        - If you don't use filters, you can also use `SimpleGaReports.raw_results`
+        - at that time, `SimpleGaReports.raw_results` is the same as `SimpleGaReports.filtered_results`
 
 ```ruby
 require 'simple_ga_reporting'
@@ -212,10 +215,10 @@ end
 # Arguments of method
 
 ## `SimpleGaReports.filtered_results` method
+- If you don't user filters, `SimpleGaReports.raw_results` method is the same
 - take one argument
 
 1. `key_and_email_file`
-    - optional
     - default is `config/key_and_email.yml`
 
 ## `SimpleGaReports.configure` method
@@ -223,17 +226,14 @@ end
 
 1. `yaml_file`
     - first argument
-    - optional
     - default is `config/ga_reporting_config.yml`
 
 1. `filters_file`
     - second argument
-    - optional
     - default is `config/filters.rb`
 
 1. `**options`
     - third argument
-    - optional
     - default is nil
     - if you set this argument, you can overwrite values in Google Analytics reporting configuration file
     - example
@@ -275,7 +275,7 @@ end
 
 #### 1. `./my_sample_app.rb`
 ```ruby
-require simple_ga_reporting
+require 'simple_ga_reporting'
 
 SimpleGaReports.configure('./bar/my_ga_reporting_config.yml','./foobar/filters.rb', start_date:
 '2daysAgo', limit: 100)
