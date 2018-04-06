@@ -6,10 +6,10 @@ class SimpleGaReports
 end
 
 class << SimpleGaReports
-  def configure(yaml_file='config/ga_reporting_config.yml', filters_file='config/filters.rb', **options)
+  def configure(yaml_file, filters_file='simple_ga_reporting/config/filters.rb', **options)
     # TODO: oh... global variable...
     $model_config = YAML.load_file(yaml_file)
-    $filters_file = File.exist?(filters_file) ? filters_file : './filters.rb'
+    $filters_file = filters_file
 
     require 'simple_ga_reporting/legato_ga_model'
     query_parameters($model_config, options)
