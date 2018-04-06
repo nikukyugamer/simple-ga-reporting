@@ -66,5 +66,19 @@ class << SimpleGaReports
     # @segment_id     = options[:segment_id] ? options[:segment_id] : model_config['segment_id']
     @filters        = options[:filters] ? options[:filters] : model_config['filters'] # Array
     @profile_name   = options[:profile_name] ? options[:profile_name] : model_config['profile_name']
+
+    # TODO: for RSpec
+    {
+      start_date: @start_date,
+      end_date: @end_date,
+      limit: @limit,
+      offset: @offset,
+      sort: @sort,
+      quota_user: @quota_user,
+      sampling_level: @sampling_level,
+      segment_id: @segment_id,
+      filters: @filters,
+      profile_name: @profile_name,
+    }
   end
 end

@@ -9,7 +9,7 @@ module LegatoGaUser
   AUTHORIZE_URL         = 'https://accounts.google.com/o/oauth2/auth'.freeze
   TOKEN_URL             = 'https://accounts.google.com/o/oauth2/token'.freeze
 
-  private
+  # private
   def create_ga_user(key_and_email_file='config/key_and_email.yml')
     signing_key = OpenSSL::PKey::RSA.new(private_key(key_and_email_file))
     auth_client = Signet::OAuth2::Client.new(
