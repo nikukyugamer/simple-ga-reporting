@@ -67,7 +67,7 @@ class << SimpleGaReports
     @filters        = options[:filters] ? options[:filters] : model_config['filters'] # Array
     @profile_name   = options[:profile_name] ? options[:profile_name] : model_config['profile_name']
 
-    # TODO: for RSpec
+    # for RSpec (ummm... not good)
     {
       start_date: @start_date,
       end_date: @end_date,

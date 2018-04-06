@@ -9,7 +9,7 @@ end
 
 describe 'Google Analytics のデータを API で取得する' do
   before do
-    @ga_reporting_config  = YAML.load_file('config/sample_ga_reporting_config.yml')
+    @ga_reporting_config = YAML.load_file('config/sample_ga_reporting_config.yml')
     @required_keys = [
       'profile_name',
       'start_date',
@@ -112,7 +112,7 @@ describe 'Google Analytics のデータを API で取得する' do
     end
   end
 
-  describe 'ユーザーオブジェクト' do
+  describe 'Legatoユーザーオブジェクト' do
     context 'private_key を' do
       it '設定ファイルから正しく取得する' do
         key_by_method = SimpleGaReports.private_key('config/sample_key_and_email.yml')

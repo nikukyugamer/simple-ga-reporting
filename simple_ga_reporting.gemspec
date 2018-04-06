@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "rspec_junit_formatter" # 'cannot load such file -- rspec_junit_formatter'
 
-  spec.add_development_dependency "legato"
-  spec.add_development_dependency "oauth2"
-  spec.add_development_dependency "signet"
+  spec.add_dependency "legato"
+  spec.add_dependency "oauth2"
+  spec.add_dependency "signet"
 end
