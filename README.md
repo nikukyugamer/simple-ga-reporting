@@ -144,12 +144,12 @@ limit: 20
 - `指標` in Japanese
 - Official documents are below (very useful!)
     - [Dimensions & Metrics Explorer](https://developers.google.com/analytics/devguides/reporting/core/dimsmets)
-
-![Dimensions & Metrics Explorer](images/dimensions_and_metrics_explorer.png)
-
 - Value examples
     - `users`
     - `uniquePageviews`
+
+![Dimensions & Metrics Explorer](images/dimensions_and_metrics_explorer.png)
+
 
 #### dimensions
 - optional
@@ -161,10 +161,13 @@ limit: 20
 
 #### sort
 - optional
+- prefix
+    - `-` sign means descending
+    - no sign means ascending
+        - Don't use `+` sign
 - Value examples
   - `-pageviews`
   - `users`
-- Don't use `+` sign
 
 #### filters
 - optional
@@ -174,6 +177,7 @@ limit: 20
 - optional
 - Original Key name is `max-results`
 - Value is max amount of returned rows
+- Default value is `100`
 
 #### sampling_level
 - optional
@@ -242,28 +246,46 @@ end
 
 # How to get `private_key` and `client_email`
 
-#### 1. Access to [Google Cloud Platform](https://console.cloud.google.com/)
-    - please prepare your Google account
+#### 1. Access to [Google Cloud Platform Console](https://console.cloud.google.com/)
 
-#### 2. Create service account for Google Analytics API and select `API and Service` from menu
+#### 2. Create new project
+- name new project as you like
+
+#### 3. Create service account for Google Analytics API and select `API and Service` from menu
 
 ![Google Cloud Platform API menu](images/gcp_api_menu.png)
 
-#### 3. Create authentication information
+#### 4. Create authentication information
 - Select `Service Account Key`
 
 ![Google Cloud Platform API Auth Info](images/gcp_api_auth_info.png)
 
-#### 4. Select Service Account and download JSON Key
+#### 5. Select Service Account and download JSON Key
 
 ![Google Cloud Platform JSON Key](images/gcp_download_json_key.png)
 
-#### 5. Open JSON Key file by editor and pick up `"private_key"` and `"client_email"`
+#### 6. Open JSON Key file by editor and pick up `"private_key"` and `"client_email"`
 
 ![Google Cloud Platform private_key and client_email](images/gcp_private_key_and_client_email.png)
 
-#### 6. They are the very Key-Value sets you want
+#### 7. They are the very Key-Value sets you want
 - Deal with them carefully
+
+#### 8. They are the very Key-Value sets you want
+- Deal with them carefully
+
+#### 9. Activate Analytics API
+- NOT `Google Analytics Reporting API` BUT `Analytics API`
+
+![GCP Activate API 01](images/gcp_activate_api_01.png)
+![GCP Activate API 02](images/gcp_activate_api_02.png)
+![GCP Activate API 03](images/gcp_activate_api_03.png)
+
+#### 10. Add API user to Google Analytics
+- In Google Analytics, add mail address of API user
+- Only `Display and Analytics` authority needs
+
+![ga_add_api_user.png](images/ga_add_api_user.png)
 
 # Sample App
 
