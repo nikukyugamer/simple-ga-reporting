@@ -9,7 +9,7 @@ end
 
 describe 'Google Analytics のデータを API で取得する' do
   before do
-    @ga_reporting_config = YAML.load_file(File.expand_path('../../config/sample_ga_reporting_config.yml', __FILE__))
+    @ga_reporting_config = YAML.load_file(File.expand_path('../config/sample_ga_reporting_config.yml', __FILE__))
 
     @required_keys = [
       'profile_name',
