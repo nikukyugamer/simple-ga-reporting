@@ -1,3 +1,6 @@
+# 1.0.4
+- fix spec bugs
+
 # 1.0.3
 - fix 1.0.2 bugs
 
