@@ -278,7 +278,9 @@ end
 - NOT `Google Analytics Reporting API` BUT `Analytics API`
 
 ![GCP Activate API 01](images/gcp_activate_api_01.png)
+
 ![GCP Activate API 02](images/gcp_activate_api_02.png)
+
 ![GCP Activate API 03](images/gcp_activate_api_03.png)
 
 #### 10. Add API user to Google Analytics
