@@ -1,5 +1,5 @@
 require 'spec_helper'
-require './config/filters'
+require './lib/simple_ga_reporting/config/filters'
 require 'yaml'
 
 describe 'Ruby Gem' do
@@ -10,7 +10,7 @@ end
 
 describe 'Google Analytics のデータを API で取得する' do
   before do
-    @ga_reporting_config = YAML.load_file('config/sample_ga_reporting_config.yml')
+    @ga_reporting_config = YAML.load_file('lib/simple_ga_reporting/config/sample_ga_reporting_config.yml')
 
     @required_keys = [
       'profile_name',
@@ -117,8 +117,8 @@ describe 'Google Analytics のデータを API で取得する' do
   describe 'Legatoユーザーオブジェクト' do
     context 'private_key を' do
       it '設定ファイルから正しく取得する' do
-        key_by_method = SimpleGaReports.private_key('config/sample_key_and_email.yml')
-        key_from_yaml = YAML.load_file('config/sample_key_and_email.yml')['private_key']
+        key_by_method = SimpleGaReports.private_key('lib/simple_ga_reporting/config/sample_key_and_email.yml')
+        key_from_yaml = YAML.load_file('lib/simple_ga_reporting/config/sample_key_and_email.yml')['private_key']
 
         expect(key_by_method === key_from_yaml).to eq true
       end
@@ -126,8 +126,8 @@ describe 'Google Analytics のデータを API で取得する' do
 
     context 'client_email を' do
       it '設定ファイルから正しく取得する' do
-        email_by_method = SimpleGaReports.client_email('config/sample_key_and_email.yml')
-        email_from_yaml = YAML.load_file('config/sample_key_and_email.yml')['client_email']
+        email_by_method = SimpleGaReports.client_email('lib/simple_ga_reporting/config/sample_key_and_email.yml')
+        email_from_yaml = YAML.load_file('lib/simple_ga_reporting/config/sample_key_and_email.yml')['client_email']
 
         expect(email_by_method === email_from_yaml).to eq true
       end
