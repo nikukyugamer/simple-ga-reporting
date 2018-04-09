@@ -1,5 +1,9 @@
 [![Gem Version](https://badge.fury.io/rb/simple_ga_reporting.svg)](https://badge.fury.io/rb/simple_ga_reporting) [![CircleCI](https://circleci.com/gh/corselia/simple-ga-reporting.svg?style=svg)](https://circleci.com/gh/corselia/simple-ga-reporting)
 
+# Japanese Document
+- Japanese Document (my blog's article) is following
+    - [Google Analytics の API を用いて簡単にデータを取得できる gem を作りました](https://obel.hatenablog.jp/entry/20180409/1523282148)
+
 # What's this?
 This gem helps you to obtain `Google Analytics` reporting data with ease.
 
