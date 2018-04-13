@@ -6,7 +6,7 @@ class SimpleGaReports
 end
 
 class << SimpleGaReports
-  def configure(report_config: 'config/ga_reporting_config.yml', filters: 'lib/simple_ga_reporting/config/filters.rb', **options)
+  def configure(report_config: 'config/ga_reporting_config.yml', filters: './config/filters.rb', **options)
     # TODO: oh... global variable...
     $model_config = YAML.load_file(report_config)
     $filters_file = filters
