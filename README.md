@@ -49,7 +49,7 @@ $ gem install simple-ga-reporting
         - `SimpleGaReports.filtered_results`
     - Only three lines :-)
     - Note
-        - If you don't use filters, use `SimpleGaReports.raw_results`
+        - If you don't use filters, also use `SimpleGaReports.raw_results`
         - when no filter is in configure file, `SimpleGaReports.raw_results` is the same as `SimpleGaReports.filtered_results`
 
 ```ruby
@@ -306,9 +306,8 @@ end
 ```ruby
 require 'simple_ga_reporting'
 
-SimpleGaReports.configure('./bar/my_ga_reporting_config.yml','./foobar/filters.rb', start_date:
-'2daysAgo', limit: 100)
-results = SimpleGaReports.filtered_results('./foo/my_key_and_email.yml')
+SimpleGaReports.configure(report_config: './bar/my_ga_reporting_config.yml', filters: './foobar/filters.rb', start_date: '2daysAgo', limit: 100)
+results = SimpleGaReports.filtered_results(key_and_email: './foo/my_key_and_email.yml')
 
 results.each do |result|
   puts '==================================='
@@ -414,6 +413,7 @@ HAPPY CHECK!
     - offset
     - quota_user
     - segment_id
+        - `segment` is the conbination of filters actually, so you can use 'filters' as alternative way
 
 # Development
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
