@@ -1,4 +1,4 @@
-require $filters_file
+require "./#{$filters_file}"
 
 class LegatoGaModel
   extend Legato::Model
