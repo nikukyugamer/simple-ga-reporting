@@ -1,3 +1,6 @@
+# 1.1.7
+- ummm... fixed bug on 1.1.7 as same as on 1.1.4
+
 # 1.1.6
 - oh no... re-re-fixed bug on 1.1.4
 
