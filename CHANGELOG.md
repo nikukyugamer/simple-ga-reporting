@@ -1,3 +1,6 @@
+# 1.1.4
+- fix the default filepath of filters.rb
+
 # 1.1.3
 - fix v1.1.2 bugs...
 
