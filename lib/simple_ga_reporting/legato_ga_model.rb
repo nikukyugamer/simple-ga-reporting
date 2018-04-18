@@ -1,4 +1,4 @@
-require File.expand_path("../#{$filters_file}", __FILE__)
+require $filters_file
 
 class LegatoGaModel
   extend Legato::Model

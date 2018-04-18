@@ -1,3 +1,6 @@
+# 1.1.8
+- oh, I forgot to fix model-file, so fixed
+
 # 1.1.7
 - ummm... fixed bug on 1.1.7 as same as on 1.1.4
 
