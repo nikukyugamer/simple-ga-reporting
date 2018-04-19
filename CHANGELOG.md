@@ -1,3 +1,6 @@
+# 1.2.0
+- fix the bug which occurs if the `filters.rb` filepath is not specified
+
 # 1.1.9
 - I have been thinking 'HOW TO SPECIFY CONFIG FILE(S)PATH?' and I concluded ROLLBACK v1.1.3
 
