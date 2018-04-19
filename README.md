@@ -14,13 +14,13 @@ Yeah, very simple :)
 ## Wrapper gem of Legato
 This gem is a wrapper of [Legato gem](https://github.com/tpitale/legato). `Legato` is very coooooooool and full-stack gem, so complicated as a beginner (me!).
 
-Therefore I developed this wrapper gem, `simple-ga-reporting`.
+Therefore I developed this wrapper gem, `simple_ga_reporting`.
 
 # Get Started
 
 ## 1. Installation
 ```bash
-$ gem install simple-ga-reporting
+$ gem install simple_ga_reporting
 ```
 
 ## 2. Create API configuration file
