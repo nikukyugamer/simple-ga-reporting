@@ -24,7 +24,7 @@ $ gem install simple-ga-reporting
 ```
 
 ## 2. Create API configuration file
-- You must create `config/key_and_email.yml`
+- You must create `./config/key_and_email.yml`
 - This YAML file must contain two Key-Value sets
     - `private_key` and its value
     - `client_email` and its value
@@ -32,11 +32,11 @@ $ gem install simple-ga-reporting
 
 ## 3. Create Google Analytics reporting configuration file
 - You must create the YAML file which contains Google Analytics reporting configuration such as `start-date`, `end-date`, `metrics`, `demensions`, `filters` and etc.
-- filepath is `config/ga_reporting_config.yml`
+- filepath is `./config/ga_reporting_config.yml`
 - This YAML file format is shown later
 
 ## 4. Create filters file (Optional)
-- If you wanna use filters function, please create `config/filters.rb`
+- If you wanna use filters function, please create `./config/filters.rb`
 - the filters configuration on GUI is below
 
 ![filter configuration on GUI](images/config_filter_by_gui.png)
@@ -63,7 +63,7 @@ SimpleGaReports.filtered_results #=> Legato::Query
 
 ## API configuration file
 - You must create Google Analytics API configuration file
-- Default filepath is `config/key_and_email.yml`
+- Default filepath is `./config/key_and_email.yml`
     - You can change filepath by argument with `create_ga_user` method
 - Sample is below
 
@@ -74,7 +74,7 @@ client_email: "your_account_name@foobar.iam.gserviceaccount.com"
 
 ## Google Analytics reporting configuration file
 - You must create the YAML file which contains Google Analytics reporting configuration
-- Default filepath is `config/ga_reporting_config.yml`
+- Default filepath is `./config/ga_reporting_config.yml`
     - You can change filepath by argument with `configure` method
 - Sample is below
 
@@ -193,7 +193,7 @@ limit: 20
     - the filename `filters.rb` is determined
         - only filepath is optional
     - the module name `Filters` is determined
-    - Default filepath is `config/filters.rb`
+    - Default filepath is `./config/filters.rb`
         - You can change it by argument with `configure` method
 - Examples
 
@@ -222,24 +222,27 @@ end
 
 # Arguments of method
 
+## Note
+**YOU MUST SPECIFY ARGUMENTS AS RELATIVE FILEPATH SO YOU MUST ADD './' (dot slash) AT BEGINNING**
+
 ## `SimpleGaReports.filtered_results` method
 - take one argument
 - If you don't use filters, use `SimpleGaReports.raw_results` method
     - when no filter is in configure file, `SimpleGaReports.raw_results` is the same as `SimpleGaReports.filtered_results`
 
 1. `key_and_email_file`
-    - default is `config/key_and_email.yml`
+    - default is `./config/key_and_email.yml`
 
 ## `SimpleGaReports.configure` method
 - take three arguments
 
 1. `yaml_file`
     - first argument
-    - default is `config/ga_reporting_config.yml`
+    - default is `./config/ga_reporting_config.yml`
 
 1. `filters_file`
     - second argument
-    - default is `config/filters.rb`
+    - default is `./config/filters.rb`
 
 1. `**options`
     - third argument
@@ -294,6 +297,9 @@ end
 ![ga_add_api_user.png](images/ga_add_api_user.png)
 
 # Sample App
+
+## Note
+**YOU MUST SPECIFY ARGUMENTS AS RELATIVE FILEPATH SO YOU MUST ADD './' (dot slash) AT BEGINNING**
 
 ## Prepare files
 
@@ -413,7 +419,7 @@ HAPPY CHECK!
     - offset
     - quota_user
     - segment_id
-        - `segment` is the conbination of filters actually, so you can use 'filters' as alternative way
+        - `segment` is the same as conbination of filters, so you can use 'filters' as alternative way
 
 # Development
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
