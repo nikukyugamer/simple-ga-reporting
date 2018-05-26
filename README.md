@@ -390,6 +390,13 @@ HAPPY CHECK!
 ......
 ```
 
+# Rails
+When you use this gem on Rails, it's simple :)
+
+1. add this gem to `Gemfile`
+2. `$ bundle install`
+3. after it, the same way above
+
 # Very Awesome Reference Book (Recommended)
 - [わかばちゃんと学ぶ Googleアナリティクス (Let's study Google Analytics with Wakaba-Chan)](http://www.c-r.com/book/detail/1217)
 
