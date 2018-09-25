@@ -426,7 +426,8 @@ When you use this gem on Rails, it's simple :)
     - offset
     - quota_user
     - segment_id
-        - `segment` is the same as conbination of filters, so you can use 'filters' as alternative way
+        - ~~`segment` is the same as conbination of filters, so you can use 'filters' as alternative way~~
+        - `segment` is the first filter for initial population and it can't substitute
 
 # Development
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
