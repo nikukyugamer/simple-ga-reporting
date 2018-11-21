@@ -23,12 +23,21 @@ Therefore I developed this wrapper gem, `simple_ga_reporting`.
 $ gem install simple_ga_reporting
 ```
 
-## 2. Create API configuration file
-- You must create `./config/key_and_email.yml`
+## 2. Set `private_key` and `client_email`
+- There are two ways to set `private_key` and `client_email`
+- How to get above two Key-Value sets is written later
+
+### 2-1. The first way: Create API configuration file
+- Create `./config/key_and_email.yml`
 - This YAML file must contain two Key-Value sets
     - `private_key` and its value
     - `client_email` and its value
-- How to get above two Key-Value sets is written later
+
+### 2-2. The second way: Set values as arguments
+- Set arguments of `SimpleGaReports.filtered_results` method
+- For example:
+    - `SimpleGaReports.filtered_results(private_key: 'FOO', client_email: 'BAR')`
+- Convenient when you set by environment variables
 
 ## 3. Create Google Analytics reporting configuration file
 - You must create the YAML file which contains Google Analytics reporting configuration such as `start-date`, `end-date`, `metrics`, `demensions`, `filters` and etc.
@@ -49,7 +58,7 @@ $ gem install simple_ga_reporting
         - `SimpleGaReports.filtered_results`
     - Only three lines :-)
     - Note
-        - If you don't use filters, also use `SimpleGaReports.raw_results`
+        - If you don't use filters, use `SimpleGaReports.raw_results` too
         - when no filter is in configure file, `SimpleGaReports.raw_results` is the same as `SimpleGaReports.filtered_results`
 
 ```ruby
@@ -59,24 +68,28 @@ SimpleGaReports.configure
 SimpleGaReports.filtered_results #=> Legato::Query
 ```
 
-# Configuration files
+# Detail of configuration
 
-## API configuration file
-- You must create Google Analytics API configuration file
-- Default filepath is `./config/key_and_email.yml`
-    - You can change filepath by argument with `create_ga_user` method
-- Sample is below
+## 1. Configuration of API account
+- You must set Google Analytics API configuration, `private_key` and `client_email`
+- There are two ways to set it
+    - The one is by arguments
+        - Set arguments of `SimpleGaReports.filtered_results` method
+    - The other is by YAML file
+        - Default filepath is `./config/key_and_email.yml`
+        - You can change filepath by argument
+- The sample of YAML file is below
 
 ```yaml
 private_key: "-----BEGIN PRIVATE KEY-----\nMIIE..........Eqw==\n-----END PRIVATE KEY-----\n"
 client_email: "your_account_name@foobar.iam.gserviceaccount.com"
 ```
 
-## Google Analytics reporting configuration file
+## 2. Google Analytics reporting configuration
 - You must create the YAML file which contains Google Analytics reporting configuration
 - Default filepath is `./config/ga_reporting_config.yml`
-    - You can change filepath by argument with `configure` method
-- Sample is below
+    - You can change filepath by argument in `SimpleGaReports.configure` method
+- The sample of YAML file is below
 
 ```yaml
 profile_name: my_profile_name
@@ -98,12 +111,12 @@ filters:
 limit: 20
 ```
 
-- Please refer the official documents as configuration Key-Value sets
+- Please refer the official documents as Key-Value sets
     - https://developers.google.com/analytics/devguides/reporting/core/v3/reference
 
 ![ga_query_parametes_summary.png](images/ga_query_parametes_summary.png)
 
-- Though that documents show many Key-Value sets, you can config only several sets as below
+- Though above official documents show many Key-Value sets, you can config only several sets as below
     - start-date
     - end-date
     - metrics
@@ -120,7 +133,7 @@ limit: 20
 - The type of `metrics`, `dimensions`, `sort` and `filters` is `Array`
     - The order of elements doesn't matter
 
-## Key-Value detail
+### 2-1. Key-Value detail
 
 #### profile_name
 - REQUIRED
@@ -153,7 +166,6 @@ limit: 20
     - `uniquePageviews`
 
 ![Dimensions & Metrics Explorer](images/dimensions_and_metrics_explorer.png)
-
 
 #### dimensions
 - optional
@@ -188,7 +200,7 @@ limit: 20
 - Original Key name is `samplingLevel`
 - Default value is `HIGHER_PRECISION`
 
-## filters file
+## 3. filters file
 - You use filters function using `filters.rb` file
     - the filename `filters.rb` is determined
         - only filepath is optional
@@ -225,26 +237,42 @@ end
 ## Note
 **YOU MUST SPECIFY ARGUMENTS AS RELATIVE FILEPATH SO YOU MUST ADD './' (dot slash) AT BEGINNING**
 
+- Set arguments of `SimpleGaReports.filtered_results` method
+- For example:
+    - `SimpleGaReports.filtered_results(private_key: 'FOO', client_email: 'BAR')
+- Convenient when you set by environment variables
+
 ## `SimpleGaReports.filtered_results` method
-- take one argument
-- If you don't use filters, use `SimpleGaReports.raw_results` method
+- If you don't use filters, use `SimpleGaReports.raw_results` method instead of `SimpleGaReports.filtered_results` method
     - when no filter is in configure file, `SimpleGaReports.raw_results` is the same as `SimpleGaReports.filtered_results`
+- take three arguments
+    - All arguments are keyword ones
+    - You must set (`key_and_email_file`) or (`private_key` and `client_email`)
 
 1. `key_and_email_file`
     - default is `./config/key_and_email.yml`
 
+1. `private_key`
+    - default is `nil`
+
+1. `client_email`
+    - default is `nil`
+
 ## `SimpleGaReports.configure` method
 - take three arguments
+    - All arguments are keyword ones
 
-1. `yaml_file`
+1. `report_config`
     - first argument
+    - YAML file
     - default is `./config/ga_reporting_config.yml`
 
-1. `filters_file`
+2. `filters`
     - second argument
+    - filter file
     - default is `./config/filters.rb`
 
-1. `**options`
+3. `**options`
     - third argument
     - default is nil
     - if you set this argument, you can overwrite values in Google Analytics reporting configuration file
@@ -313,7 +341,7 @@ end
 require 'simple_ga_reporting'
 
 SimpleGaReports.configure(report_config: './bar/my_ga_reporting_config.yml', filters: './foobar/filters.rb', start_date: '2daysAgo', limit: 100)
-results = SimpleGaReports.filtered_results(key_and_email: './foo/my_key_and_email.yml')
+results = SimpleGaReports.filtered_results(key_and_email: './foo/my_key_and_email.yml') # or use arguments of 'private_key:' and 'client_email:'
 
 results.each do |result|
   puts '==================================='
@@ -329,6 +357,8 @@ end
 private_key: "-----BEGIN PRIVATE KEY-----\nMIIE..........Eqw==\n-----END PRIVATE KEY-----\n"
 client_email: "your_account_name@foobar.iam.gserviceaccount.com"
 ```
+
+- You can set two key and value by not only YAML file but also arguments of `SimpleGaReports.filtered_results` method
 
 #### 3. `./bar/my_ga_reporting_config.yml`
 ```yaml
