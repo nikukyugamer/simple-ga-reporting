@@ -11,15 +11,18 @@ module LegatoGaUser
   TOKEN_URL             = 'https://accounts.google.com/o/oauth2/token'.freeze
 
   # private
-  def create_ga_user(key_and_email)
-    signing_key = OpenSSL::PKey::RSA.new(private_key(key_and_email))
+  def create_ga_user(key_and_email, private_key: nil, client_email: nil)
+    ga_user_private_key   = private_key.nil? ? private_key(key_and_email) : private_key
+    ga_user_client_email  = client_email.nil? ? client_email(key_and_email) : client_email
+
+    signing_key = OpenSSL::PKey::RSA.new(ga_user_private_key)
     auth_client = Signet::OAuth2::Client.new(
       token_credential_uri: TOKEN_CREDENTIAL_URI,
       audience: AUDIENCE,
       scope: SCOPE,
-      issuer: client_email(key_and_email),
+      issuer: ga_user_client_email,
       signing_key: signing_key,
-      sub: client_email(key_and_email),
+      sub: ga_user_client_email,
     )
     access_token = auth_client.fetch_access_token!
 
