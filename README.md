@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/simple_ga_reporting.svg)](https://badge.fury.io/rb/simple_ga_reporting) [![CircleCI](https://circleci.com/gh/corselia/simple-ga-reporting.svg?style=svg)](https://circleci.com/gh/corselia/simple-ga-reporting)
+[![Gem Version](https://badge.fury.io/rb/simple_ga_reporting.svg)](https://badge.fury.io/rb/simple_ga_reporting) [![CircleCI](https://circleci.com/gh/nikukyugamer/simple-ga-reporting.svg?style=svg)](https://circleci.com/gh/nikukyugamer/simple-ga-reporting)
 
 # Japanese Document
 - Japanese Document (my blog's article) is following
